@@ -9,7 +9,7 @@ export default function IndexTemplate() {
   const [indexCarrousel, setIndexCarrousel] = useState(0);
 
   useEffect(() => {
-    const pets = database
+    database
       .ref("/pets")
       .once("value")
       .then((snapshot) => {

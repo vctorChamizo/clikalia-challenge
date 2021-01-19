@@ -1,27 +1,31 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import { SCIndex } from "./Index.styled";
 
-import { database } from "../../../lib";
+import { getPets, updatePetById } from "../../../lib/db/pets";
 
 export default function IndexTemplate() {
   const [petList, setPetList] = useState([]);
-  const [indexCarrousel, setIndexCarrousel] = useState(0);
+
+  const router = useRouter();
 
   useEffect(() => {
-    database
-      .ref("/pets")
-      .once("value")
-      .then((snapshot) => {
-        setPetList(snapshot.val());
-      });
+    getPets(setPetList);
   }, []);
 
-  const handleClickElement = () => {};
+  const handleClickElement = (index) => {
+    router.push(`/detail/${index}`);
+  };
 
-  const handleClickButton = () => {};
+  const handleClickButton = async (index) => {
+    const updatedPet = petList[index];
+    updatedPet["like"] = true;
 
-  const hanldeClickArrow = (direction) => {};
+    const response = await updatePetById(index, updatedPet);
+
+    console.log(response);
+  };
 
   return <SCIndex>{petList.map((element) => element.name)}</SCIndex>;
 }

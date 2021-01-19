@@ -11,7 +11,7 @@ export const Navbar = ({ optionList, action, withoutMenu = false }) => {
   return (
     <SCNavbar>
       <div>
-        <p>PETS LIST</p>
+        <p>PETS</p>
       </div>
     </SCNavbar>
   );

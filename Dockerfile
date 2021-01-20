@@ -5,7 +5,8 @@ WORKDIR /app
 COPY . .
 
 RUN yarn install
+RUN yarn run build
 
 EXPOSE 3000
 
-CMD yarn run build
+CMD yarn run start

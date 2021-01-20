@@ -24,7 +24,7 @@ docker-compose up
 
 ## Deploy on Vercel 🚀
 
-Open [https://clikalia-challenge.vercel.app/] to enjoy the application.
+Open [https://clikalia-challenge.vercel.app/](https://clikalia-challenge.vercel.app/) to enjoy the application.
 
 
 ## Technologies 🛠

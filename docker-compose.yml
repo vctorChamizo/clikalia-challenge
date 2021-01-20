@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: clikalia-challenge-image
+    container_name: clikalia-challenge-container
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/home/react/app
+    environment:
+      - NEXT_PUBLIC_API_KEY=AIzaSyDe9f6AVtK1hwD7FwIyCSccPv0GdU36rDw
+      - NEXT_PUBLIC_AUTH_DOMAIN=clikalia-challenge-872f3.firebaseapp.com
+      - NEXT_PUBLIC_DATABSE_URL=https://clikalia-challenge-872f3-default-rtdb.firebaseio.com
+      - NEXT_PUBLIC_PROJECT_ID=clikalia-challenge-872f3
+      - NEXT_PUBLIC_STORAGE_BUCKET=clikalia-challenge-872f3.appspot.com
+      - NEXT_PUBLIC_SENDER_ID=565816036116
+      - NEXT_PUBLIC_APP_ID=1:565816036116:web:abf66142c7cb4c12ad1001
+      - NEXT_PUBLIC_MEASUREMENT_ID=G-ZB4S3P65V5
+    command: yarn run start
